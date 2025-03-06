@@ -1,5 +1,6 @@
 import pygame
 from classes import Player
+<<<<<<< HEAD
 from Camera import *
 from pytmx.util_pygame import load_pygame
 from abc import ABC, abstractmethod
@@ -32,6 +33,17 @@ player = Player(300, 300)
 camera = Camera(player)
 follow = Follow(camera, player)
 camera.setmethod(follow)
+=======
+
+pygame.init()
+
+
+screen = pygame.display.set_mode((640, 640))
+pygame.display.set_caption("Capybara Game")  # Set window title
+background_color = (30, 30, 30)  # Background color
+
+player = Player(300, 300, "capybara.png")
+>>>>>>> d11f7dd0afd729200b2f1d6e896ae9eec951642d
 
 all_sprites = pygame.sprite.Group()
 all_sprites.add(player)
@@ -40,10 +52,14 @@ all_sprites.add(player)
 running = True
 clock = pygame.time.Clock()
 
+<<<<<<< HEAD
 world_offset = [0,0]
 
 while running:
     
+=======
+while running:
+>>>>>>> d11f7dd0afd729200b2f1d6e896ae9eec951642d
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
@@ -51,6 +67,7 @@ while running:
     all_sprites.update()
 
     # Draw everything
+<<<<<<< HEAD
     screen.fill((0, 0, 0))  # Fill screen with black before drawing
 
     blit_all_tiles(screen, tmxdata, camera)
@@ -61,6 +78,10 @@ while running:
     screen.blit(player.image, player_pos)
 
 
+=======
+    screen.fill(background_color)  # Fill screen with background color
+    all_sprites.draw(screen)  # Draw sprites
+>>>>>>> d11f7dd0afd729200b2f1d6e896ae9eec951642d
 
     pygame.display.flip()  # Refresh the display
 
